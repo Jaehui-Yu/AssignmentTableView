@@ -7,16 +7,31 @@
 
 import UIKit
 
+struct Shopping {
+    var product: String
+    var check: Bool
+    var star: Bool
+}
+
 class ShoppingTableViewController: UITableViewController {
     
     @IBOutlet var userTextField: UITextField!
     @IBOutlet var submitButton: UIButton!
     
-    var list = ["양파", "소금", "비누"]
+    // var list = ["양파", "소금", "비누"]
+    
+    var shoppingList: [Shopping] = [
+        Shopping(product: "양파", check: false, star: false),
+        Shopping(product: "소금", check: false, star: false),
+        Shopping(product: "비누", check: false, star: false)
+    ]
+    
     var text = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.rowHeight = 50
         
         submitButton.setTitle("추가", for: .normal)
         submitButton.tintColor = .black
@@ -40,7 +55,7 @@ class ShoppingTableViewController: UITableViewController {
     
     @IBAction func submitButtonTapped(_ sender: UIButton) {
         if userTextField.text != "" {
-            list.append(text)
+            shoppingList.append(Shopping(product: text, check: false, star: false))
         } else {
             print("아무것도 입력하지 않았습니다.")
         }
@@ -50,24 +65,28 @@ class ShoppingTableViewController: UITableViewController {
     
     // 셀 갯수
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return list.count
+        return shoppingList.count
     }
     
     // 셀 디자인 및 데이터 처리
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "shoppingCell", for: indexPath) as! ShoppingTableViewCell
         
-        cell.itemLabel.text = list[indexPath.row]
-        cell.checkImageView.image = UIImage(systemName: "checkmark.square.fill")
-        cell.starImageView.image = UIImage(systemName: "star.fill")
+        cell.itemLabel.text = shoppingList[indexPath.row].product
+        
+        cell.checkButton.addTarget(self, action: #selector(checkButtonClicked), for: .touchUpInside)
+        cell.checkButton.tag = indexPath.row
+        let checkImage = shoppingList[indexPath.row].check ? "checkmark.circle.fill" : "checkmark.circle"
+        cell.checkButton.setImage(UIImage(systemName: checkImage), for: .normal)
+        
+        cell.starButton.addTarget(self, action: #selector(starButtonClicked), for: .touchUpInside)
+        cell.starButton.tag = indexPath.row
+        let starImage = shoppingList[indexPath.row].star ? "star.fill" : "star"
+        cell.starButton.setImage(UIImage(systemName: starImage), for: .normal)
+        
         cell.tintColor = .black
                 
         return cell
-    }
-    
-    // 셀 높이
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 50
     }
     
     // 섹션 갯수
@@ -87,8 +106,18 @@ class ShoppingTableViewController: UITableViewController {
     
     // 셀 편집 종류
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        list.remove(at: indexPath.row)
+        shoppingList.remove(at: indexPath.row)
         tableView.reloadData()
+    }
+    
+    @objc func checkButtonClicked(sender: UIButton) {
+        shoppingList[sender.tag].check.toggle()
+        tableView.reloadRows(at: [IndexPath(row: sender.tag, section: 0)], with: .automatic)
+    }
+    
+    @objc func starButtonClicked(sender: UIButton) {
+        shoppingList[sender.tag].star.toggle()
+        tableView.reloadRows(at: [IndexPath(row: sender.tag, section: 0)], with: .automatic)
     }
 
 }

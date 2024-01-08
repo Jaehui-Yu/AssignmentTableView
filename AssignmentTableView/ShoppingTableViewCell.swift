@@ -9,7 +9,7 @@ import UIKit
 
 class ShoppingTableViewCell: UITableViewCell {
     
-    @IBOutlet var checkImageView: UIImageView!
+    @IBOutlet var checkButton: UIButton!
     @IBOutlet var itemLabel: UILabel!
-    @IBOutlet var starImageView: UIImageView!
+    @IBOutlet var starButton: UIButton!
 }
