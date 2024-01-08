@@ -44,7 +44,7 @@ class TravelTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.rowHeight = 535
+        tableView.rowHeight = UITableView.automaticDimension
         
     }
 
