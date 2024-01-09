@@ -56,31 +56,10 @@ class TravelTableViewController: UITableViewController {
     // 셀 디자인 및 데이터 처리
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TravelCell", for: indexPath) as! TravelTableViewCell
+        let row = magazineInfo.magazine[indexPath.row]
         
-        let url = URL(string: magazineInfo.magazine[indexPath.row].photo_image)
-        cell.posterImageView.kf.setImage(with: url)
-        cell.posterImageView.contentMode = .scaleAspectFill
-        cell.posterImageView.layer.cornerRadius = 10
-        
-        cell.mainLabel.text = magazineInfo.magazine[indexPath.row].title
-        cell.mainLabel.font = .boldSystemFont(ofSize: 30)
-        cell.mainLabel.numberOfLines = 2
-        
-        cell.subLabel.text = magazineInfo.magazine[indexPath.row].subtitle
-        cell.subLabel.textColor = .gray
-        
-        let format = DateFormatter()
-        format.dateFormat = "yyMMdd"
-        if let date = format.date(from: magazineInfo.magazine[indexPath.row].date) {
-            format.dateFormat = "yy년 MM월 dd일"
-            let result = format.string(from: date)
-            cell.dateLabel.text = result
-            cell.dateLabel.textColor = .gray
-            cell.dateLabel.textAlignment = .right
-        } else {
-            print("error")
-        }
-        
+        cell.configureCell(magazine: row)
+    
         return cell
     }
 
