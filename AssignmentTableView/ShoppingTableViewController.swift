@@ -71,17 +71,18 @@ class ShoppingTableViewController: UITableViewController {
     // 셀 디자인 및 데이터 처리
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "shoppingCell", for: indexPath) as! ShoppingTableViewCell
+        let row = shoppingList[indexPath.row]
         
-        cell.itemLabel.text = shoppingList[indexPath.row].product
+        cell.itemLabel.text = row.product
         
         cell.checkButton.addTarget(self, action: #selector(checkButtonClicked), for: .touchUpInside)
         cell.checkButton.tag = indexPath.row
-        let checkImage = shoppingList[indexPath.row].check ? "checkmark.circle.fill" : "checkmark.circle"
+        let checkImage = row.check ? "checkmark.circle.fill" : "checkmark.circle"
         cell.checkButton.setImage(UIImage(systemName: checkImage), for: .normal)
         
         cell.starButton.addTarget(self, action: #selector(starButtonClicked), for: .touchUpInside)
         cell.starButton.tag = indexPath.row
-        let starImage = shoppingList[indexPath.row].star ? "star.fill" : "star"
+        let starImage = row.star ? "star.fill" : "star"
         cell.starButton.setImage(UIImage(systemName: starImage), for: .normal)
         
         cell.tintColor = .black

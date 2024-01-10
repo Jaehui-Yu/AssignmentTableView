@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		094E08A52B4E894D00A9FA64 /* TravelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094E08A42B4E894D00A9FA64 /* TravelData.swift */; };
+		094E08A72B4E8BF000A9FA64 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094E08A62B4E8BF000A9FA64 /* Extension.swift */; };
+		094E08A92B4E8C0B00A9FA64 /* Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094E08A82B4E8C0B00A9FA64 /* Protocol.swift */; };
 		098181DC2B4997FA00CBFA2A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098181DB2B4997FA00CBFA2A /* AppDelegate.swift */; };
 		098181DE2B4997FA00CBFA2A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098181DD2B4997FA00CBFA2A /* SceneDelegate.swift */; };
 		098181E02B4997FA00CBFA2A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098181DF2B4997FA00CBFA2A /* ViewController.swift */; };
@@ -22,6 +25,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		094E08A42B4E894D00A9FA64 /* TravelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelData.swift; sourceTree = "<group>"; };
+		094E08A62B4E8BF000A9FA64 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		094E08A82B4E8C0B00A9FA64 /* Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocol.swift; sourceTree = "<group>"; };
 		098181D82B4997FA00CBFA2A /* AssignmentTableView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AssignmentTableView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		098181DB2B4997FA00CBFA2A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		098181DD2B4997FA00CBFA2A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,8 +84,11 @@
 				098181EF2B4A71AB00CBFA2A /* SettingTableViewController.swift */,
 				098181F12B4A77F100CBFA2A /* ShoppingTableViewController.swift */,
 				098181F32B4A780000CBFA2A /* ShoppingTableViewCell.swift */,
+				094E08A42B4E894D00A9FA64 /* TravelData.swift */,
 				098181FF2B4BD7AE00CBFA2A /* TravelTableViewController.swift */,
 				098182012B4BDB9900CBFA2A /* TravelTableViewCell.swift */,
+				094E08A62B4E8BF000A9FA64 /* Extension.swift */,
+				094E08A82B4E8C0B00A9FA64 /* Protocol.swift */,
 			);
 			path = AssignmentTableView;
 			sourceTree = "<group>";
@@ -165,6 +174,9 @@
 				098181F42B4A780000CBFA2A /* ShoppingTableViewCell.swift in Sources */,
 				098181E02B4997FA00CBFA2A /* ViewController.swift in Sources */,
 				098181DC2B4997FA00CBFA2A /* AppDelegate.swift in Sources */,
+				094E08A52B4E894D00A9FA64 /* TravelData.swift in Sources */,
+				094E08A72B4E8BF000A9FA64 /* Extension.swift in Sources */,
+				094E08A92B4E8C0B00A9FA64 /* Protocol.swift in Sources */,
 				098182002B4BD7AE00CBFA2A /* TravelTableViewController.swift in Sources */,
 				098182022B4BDB9900CBFA2A /* TravelTableViewCell.swift in Sources */,
 				098181F22B4A77F100CBFA2A /* ShoppingTableViewController.swift in Sources */,

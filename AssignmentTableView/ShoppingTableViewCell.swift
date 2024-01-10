@@ -12,4 +12,10 @@ class ShoppingTableViewCell: UITableViewCell {
     @IBOutlet var checkButton: UIButton!
     @IBOutlet var itemLabel: UILabel!
     @IBOutlet var starButton: UIButton!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        
+    }
 }
