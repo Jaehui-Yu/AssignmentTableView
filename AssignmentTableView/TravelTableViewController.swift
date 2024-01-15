@@ -33,5 +33,18 @@ class TravelTableViewController: UITableViewController {
     
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // 1. Storyboard 찾기
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        
+        // 2. ViewController 찾기
+        let vc = sb.instantiateViewController(withIdentifier: "WebViewController") as! WebViewController
+        
+        vc.link = magazineInfo.magazine[indexPath.row].link
+        
+        // 3. 화면 보여주는 방식
+        present(vc, animated: true)
+    }
 
 }
